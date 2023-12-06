@@ -12,7 +12,7 @@ var DbClient *sql.DB
 
 func DbConnect() {
 
-	dsn := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s", "dev", "password@123A", "127.0.0.1", 3306, "demo")
+	dsn := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s", "sidha", "pass", "127.0.0.1", 3306, "authentication_db")
 	db, err := sql.Open("mysql", dsn)
 	if err != nil {
 		log.Fatalf("impossible to create the connection: %s", err)

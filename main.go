@@ -13,9 +13,14 @@ func main() {
 	db.DbConnect()
 
 	r := mux.NewRouter()
-
-	r.HandleFunc("/create-user", service.CreateUser).Methods("POST")
+	r.HandleFunc("/register", service.CreateUser).Methods("POST")
 	r.HandleFunc("/get-user", service.GetUser).Methods("POST")
+
+	// Admin routes
+	adminRouter := r.PathPrefix("/admin").Subrouter()
+
+	adminRouter.HandleFunc("/users", service.AdminListUsers).Methods("GET")
+	adminRouter.HandleFunc("/users/{username}", service.AdminSearchUser).Methods("GET")
 
 	err := http.ListenAndServe(":8080", r)
 	if err != nil {

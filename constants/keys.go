@@ -1,3 +1,3 @@
 package constants
 
-const SerectKey = "maone"
+const SerectKey = "hashkey"
