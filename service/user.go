@@ -54,7 +54,7 @@ func CreateUser(w http.ResponseWriter, r *http.Request) {
 	w.Header().Add("token", token)
 }
 
-func GetUser(w http.ResponseWriter, r *http.Request) {
+func Login(w http.ResponseWriter, r *http.Request) {
 	err := middleware.ExtractUserFromToken(r)
 	if err != nil {
 		fmt.Println("Error extracting user from token:", err)

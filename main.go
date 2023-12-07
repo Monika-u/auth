@@ -14,7 +14,7 @@ func main() {
 
 	r := mux.NewRouter()
 	r.HandleFunc("/register", service.CreateUser).Methods("POST")
-	r.HandleFunc("/get-user", service.GetUser).Methods("POST")
+	r.HandleFunc("/login", service.Login).Methods("POST")
 
 	// Admin routes
 	adminRouter := r.PathPrefix("/admin").Subrouter()
